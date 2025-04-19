@@ -1,0 +1,40 @@
+name: Build APK
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y zip unzip openjdk-11-jdk python3-pip libffi-dev libssl-dev build-essential
+          pip install buildozer cython
+
+      - name: Build APK
+        run: |
+          buildozer init || true
+          sed -i 's/^requirements = .*/requirements = python3,kivy/' buildozer.spec
+          sed -i 's/^source.include_exts = .*/source.include_exts = py,kv,png,jpg,txt/' buildozer.spec
+          sed -i 's/^android.permissions = .*/android.permissions = INTERNET/' buildozer.spec
+          buildozer android debug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: alex-apk
+          path: bin/*.apk
+          

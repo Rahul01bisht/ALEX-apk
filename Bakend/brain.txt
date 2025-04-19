@@ -1,0 +1,22 @@
+hello::Hi, how can I assist you today?
+what is your name::I am Alex, your virtual assistant.
+how are you::I'm doing well, thank you for asking!
+what can you do::I can answer questions and help you.
+who made you::I was created by my developer.
+good morning::Good morning!
+good night::Good night, sleep well!
+thank you::You're welcome!
+tell me a joke::Why did the tomato turn red? Because it saw the salad dressing!
+open google::Opening Google.
+open youtube::Opening YouTube.
+what is python::Python is a programming language.
+what is AI::AI stands for Artificial Intelligence.
+what is your job::I'm here to help you.
+bye::Goodbye!
+exit::See you later!
+repeat that::Sure, let me repeat.
+i need help::I’m here to help you!
+are you a robot::You could say that.
+can you learn::Not yet, but I can remember some things.
+where do you live::I live in your device.
+what's up::Just chilling in the code!
